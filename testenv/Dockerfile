@@ -57,8 +57,9 @@ RUN pacman --noconfirm --ask=4 -Syy \
 		socat \
 		eslint \
 		npm \
+		freeradius \
 	&& (pacman -Sc --noconfirm || true) \
-	&& rm -rf /var/cache/pacman/pkg/*
+	&& rm -rf /var/cache/pacman/pkg/* 
 
 COPY testenv/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
