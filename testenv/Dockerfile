@@ -109,4 +109,8 @@ COPY testenv/fakes/msd/* /fake_sysfs/sys/kernel/config/usb_gadget/kvmd/functions
 COPY testenv/fakes/cpu_temp /fake_sysfs/sys/class/thermal/thermal_zone0/temp
 COPY testenv/fakes/dt_model /fake_procfs/proc/device-tree/model
 
+RUN mkdir -p /etc/raddb/
+RUN echo 'admin    Cleartext-Password := "pass"\n' > /etc/raddb/users
+#RUN systemctl start freeradius
+
 CMD /bin/bash
